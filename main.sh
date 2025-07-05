@@ -2,7 +2,6 @@
 
 SCRIPT_DIR="$(dirname "$0")"
 
-source "$SCRIPT_DIR/file-handler.sh"
 source "$SCRIPT_DIR/dns-handler.sh"
 
 while true; do
@@ -17,13 +16,18 @@ while true; do
         1)
             clear
             echo "[!] Вы выбрали: Добавить DNS"
-            AddDNS
+            read -p "Введите имя DNS(Пример esxi.local): " name
+            read -p "Введите ип  DNS(Пример 192.168.1.1): " ip
+            DNSHandler_Invoke add "$name" "$ip"
             ;;
         2)
+            clear
             echo "[!] Вы выбрали: Показать DNS"
+            DNSHandler_Invoke print
             ;;
         3)
             echo "[!] Переход в подменю Тестов..."
+            bash "$SCRIPT_DIR/test-handler.sh"
             ;;
         4)
             echo "Выход..."

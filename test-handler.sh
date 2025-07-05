@@ -5,8 +5,8 @@ SCRIPT_DIR="$(dirname "$0")"
 while true; do
   clear
   echo "===== 🛰️ Remote Host Tester ====="
-  echo "1. 🔍 Manual IP/Host Test"
-  echo "2. 🧠 SSH Config Host Test"
+  echo "1. 🔍 Manual Test"
+  echo "2. 🧠 DNS Test"
   echo "3. 🔙 Back"
   echo "================================="
   read -rp "Choose option: " mode
