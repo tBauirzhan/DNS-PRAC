@@ -17,7 +17,6 @@ WriteFile()
 
     output=$(echo "$1 $2" | sudo tee -a "$DNS_FILE")
 
-    echo "$output"
     echo "Запись прошло успешно!"
     echo "$1 $2"
 

@@ -7,9 +7,10 @@ source "$SCRIPT_DIR/dns-handler.sh"
 while true; do
     echo "===== Главное меню ====="
     echo "1. Добавить DNS"
-    echo "2. Показать DNS"
-    echo "3. Тесты"
-    echo "4. Выход"
+    echo "2. Удалить  DNS"
+    echo "3. Показать DNS"
+    echo "4. Тесты"
+    echo "5. Выход"
     read -p "Выберите пункт: " choice
 
     case $choice in
@@ -21,15 +22,21 @@ while true; do
             DNSHandler_Invoke add "$name" "$ip"
             ;;
         2)
+	    clear
+	    DNSHandler_Invoke delete
+	    sleep 1
+	    clear
+	    ;;
+	3)
             clear
-            echo "[!] Вы выбрали: Показать DNS"
             DNSHandler_Invoke print
-            ;;
-        3)
-            echo "[!] Переход в подменю Тестов..."
-            bash "$SCRIPT_DIR/test-handler.sh"
+	    read -p "Нажмите на любую кнопку для продолжение..."
+	    clear
             ;;
         4)
+            bash "$SCRIPT_DIR/test-handler.sh"
+            ;;
+        5)
             echo "Выход..."
             exit 0
             ;;
